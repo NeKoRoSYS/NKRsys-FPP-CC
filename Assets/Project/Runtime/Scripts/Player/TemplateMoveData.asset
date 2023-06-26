@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759dd7f3a939da645a5ecd2229ee45a9, type: 3}
+  m_Name: TemplateMoveData
+  m_EditorClassIdentifier: 
+  tagMovement: 1
+  acceleration: 5
+  tagSpeed: 2.5
+  tagDelay: 0.25
+  walkSpeed: 5
+  sprintSpeed: 8
+  crouchSpeed: 2.5
+  walkDamp: 4
+  sprintDamp: 3.95
+  crouchDamp: 20
+  airSmoothen: 3
+  heightLerp: 7.5
+  standHeight: 2
+  crouchHeight: 1.15
+  jumpForce: 2.5
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 1
+  antiBump: -5
+  fallTimeMax: 0.25
+  coyoteTimeMax: 0.1
+  stepOffset: 0.5

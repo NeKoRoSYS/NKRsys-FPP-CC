@@ -1,0 +1,16 @@
+{
+    "name": "Project.External",
+    "rootNamespace": "",
+    "references": [
+        "GUID:7de963a527d2c7b498724dbae4e0f518"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
