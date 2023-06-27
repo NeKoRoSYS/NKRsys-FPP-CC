@@ -33,6 +33,7 @@ In account for a * planned * third person feature.
 <br>
 
 ## Features
+### [Documentation](https://github.com/NeKoRoSYS/NKRsys-FPP-CC/wiki)
 ### Settings and Preferences
 This character controller comes with adjustable values and changeable control types that may suit your needs. You can select between toggling or holding crouch, inverting the camera controller's mouse input Y axis, and more. It even has a save and load system!
 ### Future-proof Input Management
