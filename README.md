@@ -6,8 +6,6 @@ Other than having the purpose of giving a great starting point/template for impl
 <br>
 
 ## Before You Use
-**Disclaimer** - There are portions of code here that I have [taken from tutorials and resources](#credits). Even though they are free to use I still want to clarify that I use assets and resources that may be outside of my field of expertise at the moment because I am constantly learning something new everyday.<br>
-
 Before you use this repo as a template in any means, this project is currently being actively developed and many things are subject to change. Kindly star the repo before using, forking or cloning, please!
 
 <br>
@@ -35,8 +33,6 @@ In account for a * planned * third person feature.
 <br>
 
 ## Features
-### Fully Commented
-All the essential scripts in this project are fully commented to a certain degree, this is to make sure that you learn how the code works as you inspect it.
 ### Settings and Preferences
 This character controller comes with adjustable values and changeable control types that may suit your needs. You can select between toggling or holding crouch, inverting the camera controller's mouse input Y axis, and more. It even has a save and load system!
 ### Future-proof Input Management
@@ -90,4 +86,3 @@ Something's wrong with the code or you know better workarounds and alternatives?
 
 ## Credits
 - This project would not have been possible without the help of wonderful people at [Samyam](https://www.youtube.com/@samyam)'s [Discord Server](https://discord.com/invite/B9bjMxj)!
-- [Event-based input](https://www.youtube.com/watch?v=8Yih0p2Kvy0&t=3s), [Camera headbobbing](https://www.youtube.com/watch?v=5MbR2qJK8Tc&t=1s), and Smooth crouching are implemented and modified from [Hero 3D](https://www.youtube.com/@hero3d899).
