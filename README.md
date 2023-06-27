@@ -23,15 +23,6 @@ This README will be pretty lengthy in the near future. So, if you want to skip o
 
 <br>
 
-## Planned Upcoming Features and Updates
-There will be more releases as I refactor old and unhealthy code to make better iterations of existing features, and introduce completely new ones!
-### Asset Store Release
-This repo will be released to the general public once it's deemed stable, production-ready, and bug-free.
-### Possible Rebrand
-In account for a * planned * third person feature.
-
-<br>
-
 ## Features
 ### [Documentation](https://github.com/NeKoRoSYS/NKRsys-FPP-CC/wiki)
 ### Settings and Preferences
