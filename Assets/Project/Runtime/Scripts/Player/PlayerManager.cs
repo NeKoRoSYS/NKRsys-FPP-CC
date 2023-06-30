@@ -26,6 +26,7 @@ public class PlayerManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         UISettings.Instance.playerManager = this;
         PlayerInput.Instance.joystick = UISettings.Instance.joystick;
+        PlayerInput.Instance.controlPad = UISettings.Instance.controlPad;
     }
 
     private void InitializeCamera()
@@ -35,7 +36,6 @@ public class PlayerManager : MonoBehaviour
             cameraManager = Instantiate(camPrefab, Vector3.zero, Quaternion.identity).GetComponent<CameraManager>();
             cameraManager.playerManager = this;
             cameraController = cameraManager.cameraController;
-            cameraController.controlPad = UISettings.Instance.controlPad;
         }
     }
 }

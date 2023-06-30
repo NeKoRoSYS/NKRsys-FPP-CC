@@ -296,13 +296,12 @@ public class PlayerMovement : MonoBehaviour
     private float desiredSpeed;
     private void ChangeSpeed()
     {
+        if (!controller.isGrounded) return;
         desiredSpeed = isCrouching ? moveData.crouchSpeed : isSprinting ? moveData.sprintSpeed : moveData.walkSpeed;
+        groundSmoothen = isCrouching ? moveData.crouchDamp : isSprinting ? moveData.sprintDamp : moveData.walkDamp;
         if (!changeSpeed) return;
-        if (!Mathf.Approximately(speed, desiredSpeed))
-        {
-            speed = Mathf.Lerp(speed, desiredSpeed, moveData.acceleration * Time.deltaTime);
-            groundSmoothen = isCrouching ? moveData.crouchDamp : isSprinting ? moveData.sprintDamp : moveData.walkDamp;
-        }
+        if (Mathf.Approximately(speed, desiredSpeed)) return;
+        speed = Mathf.Lerp(speed, desiredSpeed, moveData.acceleration * Time.deltaTime);
     }
 
     private void Move()

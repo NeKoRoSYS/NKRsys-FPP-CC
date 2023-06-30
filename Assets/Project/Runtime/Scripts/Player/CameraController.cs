@@ -6,7 +6,6 @@ using NeKoRoSYS.InputHandling.Mobile;
 public class CameraController : MonoBehaviour {
     [Header("References")]
     [SerializeField] private CameraManager cameraManager;
-    [SerializeField] public ControlPad controlPad;
     [SerializeField] private Transform camHolder;
     
     [Header("Camera")]
@@ -38,37 +37,32 @@ public class CameraController : MonoBehaviour {
         switch (enable)
         {
             case true:
-                lookAction.performed += OnMouseLookInput;
-                lookAction.canceled += OnMouseLookInput;
-                controlPad.OnTouchDrag.AddListener(OnTouchLookInput);
+                lookAction.performed += OnLookInput;
+                lookAction.canceled += OnLookInput;
+                PlayerInput.Instance.controlPad.OnTouchDrag.AddListener(OnTouchLookInput);
             break;
             case false:
-                lookAction.performed -= OnMouseLookInput;
-                lookAction.canceled -= OnMouseLookInput;
-                controlPad.OnTouchDrag.RemoveListener(OnTouchLookInput);
+                lookAction.performed -= OnLookInput;
+                lookAction.canceled -= OnLookInput;
+                PlayerInput.Instance.controlPad.OnTouchDrag.RemoveListener(OnTouchLookInput);
             break;
         }
     }
 
     private void Update() => Look();
     
-    private void OnMouseLookInput(InputAction.CallbackContext ctx)
+    private void OnLookInput(InputAction.CallbackContext ctx) => ProcessDelta(ctx.ReadValue<Vector2>());
+    private void OnTouchLookInput(Vector2 touchDelta) => ProcessDelta(touchDelta);
+    private void ProcessDelta(Vector2 lookDelta)
     {
-        yaw += ctx.ReadValue<Vector2>().x * cameraManager.sensX * multiplier;
-        pitch -= (cameraManager.invertYAxis ? -ctx.ReadValue<Vector2>().y : ctx.ReadValue<Vector2>().y) * cameraManager.sensY * multiplier;
-        pitch = cameraManager.clampCam ? Mathf.Clamp(pitch, UpClamp, DownClamp) : pitch;
-    }
-
-    private void OnTouchLookInput(Vector2 touchDelta)
-    {
-        yaw += touchDelta.x * cameraManager.sensX * multiplier;
-        pitch -= (cameraManager.invertYAxis ? -touchDelta.y : touchDelta.y) * cameraManager.sensY * multiplier;
+        yaw += lookDelta.x * cameraManager.sensX * multiplier;
+        pitch -= (cameraManager.invertYAxis ? -lookDelta.y : lookDelta.y) * cameraManager.sensY * multiplier;
         pitch = cameraManager.clampCam ? Mathf.Clamp(pitch, UpClamp, DownClamp) : pitch;
     }
 
     private void Look()
     {
-        Clamping = ((pitch == UpClamp) || (pitch == DownClamp));
+        Clamping = (pitch == UpClamp) || (pitch == DownClamp);
         if (yaw >= 360f) 
         {
             yaw -= 360f;

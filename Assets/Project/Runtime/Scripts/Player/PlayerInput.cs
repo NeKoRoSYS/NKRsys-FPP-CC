@@ -5,6 +5,7 @@ using NeKoRoSYS.InputHandling.Mobile;
 public class PlayerInput : MonoBehaviour
 {
     public ControlStick joystick;
+    public ControlPad controlPad;
     public static PlayerInput Instance;
     PlayerInputActions playerInputActions;
     public InputAction MoveAction { get; set; }

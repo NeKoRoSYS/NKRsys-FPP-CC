@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -126,8 +127,8 @@ namespace NeKoRoSYS.InputHandling.Mobile
         public void OnPointerUp(PointerEventData eventData)
         {
             if (eventData.pointerId != touchId) return;
-            if (StickMode != StickMode.Fixed) stickBounds.gameObject.SetActive(false);
             touched = false;
+            if (StickMode != StickMode.Fixed) stickBounds.gameObject.SetActive(false);
             FullInput = false;
             input = Vector2.zero;
             stickHandle.anchoredPosition = Vector2.zero;

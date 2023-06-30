@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 using TouchPhase = UnityEngine.InputSystem.TouchPhase;
 
@@ -15,13 +14,12 @@ namespace NeKoRoSYS.InputHandling.Mobile
         private Vector2 currentPos, lastPos;
         private HashSet<int> availableTouchIds = new();
 
-        private void ResetTouchpad() => delta = Vector2.zero;
         private bool IsTouchingPad(Touch touch) => RectTransformUtility.RectangleContainsScreenPoint((RectTransform)transform, touch.screenPosition);
         private void Update()
         {
-            if (EventSystem.current == null) return;
+            if (Touch.activeTouches.Count == 0) return;
             if (availableTouchIds.Count <= touchLimit) GetTouch();
-            ResetTouchpad();
+            delta = Vector2.zero;
             if (availableTouchIds.Count == 0) return;
             foreach (var touch in Touch.activeTouches)
                 { if (availableTouchIds.Contains(touch.touchId)) ApplyTouch(touch); }
@@ -46,7 +44,7 @@ namespace NeKoRoSYS.InputHandling.Mobile
                 currentPos += touch.delta;
                 delta += currentPos - lastPos;
                 lastPos = currentPos;
-            } else if (touch.phase == TouchPhase.Stationary) ResetTouchpad();
+            } else if (touch.phase == TouchPhase.Stationary) delta = Vector2.zero;
         }
     }
 }

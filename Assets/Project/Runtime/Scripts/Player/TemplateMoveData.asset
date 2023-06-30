@@ -19,8 +19,8 @@ MonoBehaviour:
   walkSpeed: 5
   sprintSpeed: 8
   crouchSpeed: 2.5
-  walkDamp: 4
-  sprintDamp: 3.95
+  walkDamp: 6
+  sprintDamp: 4.5
   crouchDamp: 20
   airSmoothen: 3
   heightLerp: 7.5
